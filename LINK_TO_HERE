@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Make symbolic links from here to your directories
+# (c) Eamonn O'Brien-Strain  eob@well.com
+
+#Goto directory containing this script
+cd `dirname $0`
+here=`pwd`
+
+#Make personal bin directory if necessary
+if [ ! -d $HOME/bin ]
+then
+  mkdir $HOME/bin
+fi
+
+
+
+#Make symbolic links for files that do not already exist
+for dir in bin
+do
+  for file in $dir/*
+  do
+    name=`basename $file`
+    destination=$HOME/$dir/$name
+    if [ ! -f $destination ]
+    then
+        echo "Creating link to $destination"
+        ln -s $here/$dir/$name $destination
+    fi
+  done
+done
