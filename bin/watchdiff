@@ -1,0 +1,16 @@
+#!/bin/bash
+
+a=/tmp/a$$
+b=/tmp/b$$
+
+$* >$a
+cat $a
+
+while true
+do
+    sleep 60
+    $* >$b
+    date
+    diff -c $a $b
+    mv $b $a
+done
