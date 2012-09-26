@@ -4,5 +4,5 @@
 # externally-visible IP address of the current machine.
 # (c) Eamonn O'Brien-Strain  eob@well.com
 
-curl --silent --user-agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.19 (KHTML, like Gecko) Ubuntu/11.10 Chromium/18.0.1025.168 Chrome/18.0.1025.168 Safari/535.19' 'http://whatismyipaddress.com/' | awk -F\" '$6~/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]/{print $6}'
+curl ifconfig.me/ip
 
